@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xorbital - Unlimited Clean Energy From Space</title>
+    <meta name="description" content="Xorbital revolutionizes energy generation through space-based solar power, delivering 24/7 clean energy from orbit to Earth via advanced laser transmission technology.">
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Design System Variables - Xorbital Space Theme */
+        :root {
+            /* Pure black background, pure white text for maximum contrast */
+            --background: hsl(0, 0%, 0%);
+            --foreground: hsl(0, 0%, 100%);
+            
+            /* Card backgrounds with subtle space texture */
+            --card: hsl(0, 0%, 5%);
+            --card-foreground: hsl(0, 0%, 100%);
+            
+            /* Primary brand colors - white on black */
+            --primary: hsl(0, 0%, 100%);
+            --primary-foreground: hsl(0, 0%, 0%);
+            
+            /* Secondary colors - subtle gray variations */
+            --secondary: hsl(0, 0%, 10%);
+            --secondary-foreground: hsl(0, 0%, 100%);
+            
+            /* Muted elements */
+            --muted: hsl(0, 0%, 15%);
+            --muted-foreground: hsl(0, 0%, 70%);
+            
+            /* Accent colors for highlights */
+            --accent: hsl(0, 0%, 20%);
+            --accent-foreground: hsl(0, 0%, 100%);
+            
+            /* Borders and inputs */
+            --border: hsl(0, 0%, 20%);
+            --input: hsl(0, 0%, 10%);
+            --ring: hsl(0, 0%, 100%);
+            
+            /* Space-themed gradients */
+            --gradient-space: linear-gradient(135deg, hsl(0, 0%, 0%), hsl(240, 5%, 5%));
+            --gradient-cosmic: radial-gradient(circle at center, hsl(0, 0%, 8%), hsl(0, 0%, 0%));
+            --gradient-hero: linear-gradient(180deg, hsl(0, 0%, 0%, 0.8), hsl(0, 0%, 0%));
+            
+            /* Shadows and glows */
+            --shadow-space: 0 25px 50px -12px hsl(0, 0%, 0%, 0.8);
+            --glow-subtle: 0 0 20px hsl(0, 0%, 100%, 0.1);
+            
+            /* Professional spacing */
+            --radius: 0.5rem;
+        }
+
+        /* Base styles */
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: var(--gradient-cosmic);
+            color: var(--foreground);
+            line-height: 1.6;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.75rem; }
+        h4 { font-size: 1.5rem; }
+        h5 { font-size: 1.25rem; }
+        h6 { font-size: 1rem; }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Utility Classes */
+        .relative { position: relative; }
+        .absolute { position: absolute; }
+        .fixed { position: fixed; }
+        .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+        .z-10 { z-index: 10; }
+        .z-50 { z-index: 50; }
+
+        .flex { display: flex; }
+        .grid { display: grid; }
+        .hidden { display: none; }
+        .block { display: block; }
+
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .text-center { text-align: center; }
+
+        .space-y-2 > * + * { margin-top: 0.5rem; }
+        .space-y-3 > * + * { margin-top: 0.75rem; }
+        .space-y-4 > * + * { margin-top: 1rem; }
+        .space-y-6 > * + * { margin-top: 1.5rem; }
+        .space-y-8 > * + * { margin-top: 2rem; }
+
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-12 { margin-bottom: 3rem; }
+        .mb-16 { margin-bottom: 4rem; }
+
+        .p-4 { padding: 1rem; }
+        .p-8 { padding: 2rem; }
+        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+        .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+        .py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .px-8 { padding-left: 2rem; padding-right: 2rem; }
+
+        .rounded { border-radius: var(--radius); }
+        .rounded-lg { border-radius: 0.75rem; }
+        .rounded-full { border-radius: 9999px; }
+
+        .border { border: 1px solid var(--border); }
+        .border-t { border-top: 1px solid var(--border); }
+        .border-b { border-bottom: 1px solid var(--border); }
+
+        /* Color utilities */
+        .text-primary { color: var(--primary); }
+        .text-muted-foreground { color: var(--muted-foreground); }
+        .bg-card { background-color: var(--card); }
+        .bg-primary { background-color: var(--primary); }
+        .bg-background { background: var(--gradient-cosmic); }
+
+        /* Gradient backgrounds */
+        .bg-gradient-space { background: var(--gradient-space); }
+        .gradient-hero { background: var(--gradient-hero); }
+
+        /* Shadows */
+        .shadow-glow { box-shadow: var(--glow-subtle); }
+        .shadow-space { box-shadow: var(--shadow-space); }
+
+        /* Navigation - Fixed with dark background to prevent white flicker */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(0, 0, 0, 0.8) !important;
+            backdrop-filter: blur(16px);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .nav.scrolled {
+            background: rgba(0, 0, 0, 0.95);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 3.5rem;
+            padding: 0 1rem;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            position: relative;
+            background: none;
+            border: none;
+            color: var(--foreground);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: var(--primary);
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            padding: 1rem 0;
+            border-top: 1px solid var(--border);
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            display: block;
+            max-height: 16rem;
+        }
+
+        .mobile-menu-item {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            color: var(--foreground);
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu-item:hover {
+            color: var(--primary);
+        }
+
+        /* Button styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 0.875rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--primary-foreground);
+        }
+
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--primary-foreground);
+        }
+
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+        }
+
+        /* Card styles */
+        .card {
+            background: rgba(5, 5, 5, 0.5);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: var(--glow-subtle);
+        }
+
+        .card-header {
+            padding: 1.5rem 1.5rem 0;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Badge styles */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid;
+        }
+
+        .badge-blue {
+            background: rgba(59, 130, 246, 0.2);
+            color: rgb(96, 165, 250);
+            border-color: rgba(59, 130, 246, 极.5);
+        }
+
+        .badge-purple {
+            background: rgba(147, 51, 234, 0.2);
+            color: rgb(196, 181, 253);
+            border-color: rgba(147, 51, 234, 0.5);
+        }
+
+        .badge-green {
+            background: rgba(34, 197, 94, 0.2);
+            color: rgb(74, 222, 128);
+            border-color: rgba(34, 197, 94, 0.5);
+        }
+
+        .badge-yellow {
+            background: rgba(234, 179, 8, 0.2);
+            color: rgb(250, 204, 21);
+            border-color: rgba(234, 179, 8, 0.5);
+        }
+
+        /* Hero section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 4rem;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-hero);
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 0 1rem;
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.025em;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--muted-foreground);
+            margin-bottom: 2rem;
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            animation: slideUp 1s ease-out 0.3s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            animation: slideUp 1s ease-out 0.5s both;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator-inner {
+            width: 1.5rem;
+            height: 2.5rem;
+            border: 2px solid var(--primary);
+            border-radius: 9999px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .scroll-indicator-dot {
+            width: 0.25rem;
+            height: 0.75rem;
+            background: var(--primary);
+            border-radius: 9999px;
+            margin-top: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        /* Glowing dots */
+        .glow-dot {
+            position: absolute;
+            width: 0.5rem;
+            height: 0.5rem;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: glowPulse 3s infinite;
+        }
+
+        .glow-dot:nth-child(1) {
+            top: 25%;
+            left: 25%;
+        }
+
+        .glow-dot:nth-child(2) {
+            top: 75%;
+            right: 33%;
+            animation-delay: 1s;
+        }
+
+        .glow-dot:nth-child(3) {
+            top: 50%;
+            right: 25%;
+            animation-delay: 2s;
+        }
+
+        /* Grid layouts */
+        .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+        .gap-6 { gap: 1.5rem; }
+        .gap-8 { gap: 2rem; }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40%, 43% { transform: translateX(-50%) translateY(-30px); }
+            70% { transform: translateX(-50%) translateY(-15px); }
+            90% { transform: translateX(-50%) translateY(-4px); }
+        }
+
+        @keyframes pulse {
+            0%, 极0% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.5; box-shadow: 0 0 5px var(--primary); }
+            50% { opacity: 1; box-shadow: 0 0 20px var(--primary); }
+        }
+
+        /* Section styling */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+           极 color: var(--muted-foreground);
+            max-width: 48rem;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Table styles */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th,
+        .table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .table th {
+            font-weight: 600;
+        }
+
+        .table-center {
+            text-align: center;
+        }
+
+        .text-green { color: rgb(74, 222, 128); }
+        .text-yellow { color: rgb(250, 204, 21); }
+        .text-red { color: rgb(248, 113, 113); }
+
+        /* Profile images */
+        .profile-img {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            transition: border-color 0.3s ease;
+        }
+
+        .profile-img:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--card);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive Design */
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+            }
+            
+            .hero-title {
+                font-size: 4rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.5rem; }
+            h3 { font-size: 2rem; }
+        }
+
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .grid-md-2 { grid-template-columns: repeat(2, 1fr); }
+            .grid-md-3 { grid-template-columns: repeat(3, 1fr); }
+            .grid-md-4 { grid-template-columns: repeat(4, 1fr); }
+            
+            .hero-title {
+                font-size: 5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-lg-2 { grid-template-columns: repeat(2, 1fr); }
+            .grid-lg-3 { grid-template-columns: repeat(3, 1fr); }
+            .极 grid-lg-4 { grid-template-columns: repeat(4, 1fr); }
+            
+            .hero-title {
+                font-size: 6rem;
+            }
+        }
+
+        /* Image responsiveness */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Responsive table */
+        @media (max-width: 768px) {
+            .table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        /* Responsive team section */
+        @media (max-width: 640px) {
+            .profile-img {
+                width: 6rem;
+                height: 6rem;
+            }
+        }
+
+        /* Responsive technology section */
+        .tech-image-container {
+            width: 100%;
+            height: 24rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+
+        .tech-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Responsive grid adjustments */
+        @media (max-width: 768px) {
+            .grid-cols-2,
+            .grid-cols-3,
+            .grid-cols-4 {
+                grid-template极-columns: 1fr;
+            }
+        }
+
+        /* About section image */
+        .about-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation - Fixed with dark background -->
+    <nav class="nav" id="navigation">
+        <div class="container">
+            <div class="nav-container">
+                <!-- Logo -->
+                <div class="nav-logo">
+                    <img src="images/xorbital.png" alt="Xorbital Logo">
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="nav-menu">
+                    <button class="nav-item" onclick="scrollToSection('home')">Home</button>
+                    <button class="nav-item" onclick="scrollToSection('about')">About</button>
+                    <button class="nav-item" onclick="scrollToSection('technology')">Technology</button>
+                    <button class="nav-item" onclick="scrollToSection('projects')">Projects</button>
+                    <button class="nav-item" onclick="scrollToSection('team')">Team</button>
+                    <button class="nav-item" onclick="scrollToSection('contact')">Contact</button>
+                    <a href="mailto:contact@xorbital.space" class="btn btn-outline">Partner With Us</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <div style="width: 1.5rem; height: 1.5rem; position: relative;">
+                        <span id="menu-line-1" style="position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--foreground); transition: all 0.3s ease;"></span>
+                        <span id="menu-line-2" style="position: absolute; top: 8px; left: 0; width: 100%;极 height: 2px; background: var(--foreground); transition: all 0.3s ease;"></span>
+                        <span id="menu-line-3" style="position: absolute; top: 16px; left: 0; width: 100%; height: 2px; background: var(--foreground); transition: all 极.3s ease;"></span>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobile-menu">
+                <div class="space-y-4">
+                    <button class="mobile-menu极-item" onclick="scrollToSection('home')">Home</button>
+                    <button class="mobile-menu-item" onclick="scrollToSection('about')">About</button>
+                    <button class="mobile-menu-item" onclick="scrollToSection('technology')">Technology</button>
+                    <button class="mobile-menu-item" onclick="scrollToSection('projects')">Projects</button>
+                    <button class="mobile-menu-item" onclick="scrollToSection('team')">Team</button>
+                    <button class="mobile-menu-item" onclick="scrollToSection('contact')">Contact</button>
+                    <a href="mailto:contact@xorbital.space" class="btn btn-outline" style="width: 100%; margin-top: 1rem;">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="absolute inset-0">
+            <img src="images/hero-space-bg.jpg" alt="Space background with satellites and solar panels in orbit" class="hero-bg">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="absolute inset-0">
+            <div class="glow-dot"></div>
+            <div class="glow-dot"></div>
+            <div class="glow-dot"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="block">UNLIMITED</span>
+                <span class="block">CLEAN ENERGY</span>
+                <span class="block text-muted-foreground">FROM SPACE</极>
+            </h1>
+            <p class="hero-subtitle">
+                Xorbital is revolutionizing energy generation through space-based solar power,
+                delivering 24/7 clean energy from orbit to Earth via advanced laser transmission technology.
+            </p>
+            <div class="hero-buttons">
+                <a href="mailto:contact@xorbital.space" class="btn btn-primary btn-lg shadow-glow">Partner With Us</a>
+                <button onclick="scrollToSection('about')" class="btn btn-outline btn-lg">Learn More</button>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-indicator-inner">
+                    <div class="scroll-indicator-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The rest of your content remains unchanged -->
+    <!-- About Section -->
+    <section id="about" class="section bg-gradient-space">
+        <div class="container">
+            <div style="max-width: 72rem; margin: 0 auto;">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h2 class="section-title">ABOUT XORBITAL</h2>
+                    <p class="section-subtitle">
+                        We are pioneering the next generation of clean energy through space-based solar power technology.
+                    </p>
+                </div>
+
+                <div class="grid grid-lg-2 gap-8 items-center">
+                    <!-- Image -->
+                    <div class="relative">
+                        <img src="images/earth-space.jpg" alt="Earth from space showing our planet's energy needs" class="about-image">
+                        <div class="absolute inset-0 gradient-hero rounded opacity-20"></div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="space-y-8">
+                        <div class="card">
+                            <div class="card-content">
+                                <h3 class="text-2xl font-semibold mb-4">Our Mission</h3>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    Xorbital is dedicated to solving Earth's energy crisis by harnessing the unlimited power of space-based solar energy. 
+                                    Our mission is to provide clean, continuous, and reliable energy that transcends geographical limitations and weather dependencies.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-content">
+                                <h3 class="text-2xl font-semibold mb-4">Why Space Solar Power?</h3>
+                                <ul class="space-y-3 text-muted-foreground">
+                                    <li class="flex items-start">
+                                        <span style="width: 0.5rem; height: 0.5rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        <span>24/7 energy generation without weather interference</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span style="width: 0.5rem; height: 0.5rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        <span>8x more solar energy available in space than on Earth</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span style="width: 0.5rem; height: 0.5rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        <span>Global energy access regardless of location</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span style="width: 0.5rem; height: 0.5rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        <span>Zero carbon emissions during operation</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-content">
+                                <h3 class="text-2xl font-semibold mb-4">Our Vision</h3>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    To create a sustainable energy ecosystem that powers human civilization through clean, unlimited energy from space, 
+                                    enabling technological advancement while preserving our planet for future generations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="section">
+        <div class="container">
+            <div style="max-width: 72rem; margin: 0 auto;">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h2 class="section-title">BREAKTHROUGH TECHNOLOGY</h2>
+                    <p class="section-subtitle">
+                        Our revolutionary space-based solar power system transforms how humanity generates and distributes clean energy.
+                    </p>
+                </div>
+
+                <!-- Hero Technology Image -->
+                <div class="mb-16 relative">
+                    <div class="tech-image-container">
+                        <img src="images/satellite-laser.jpg" alt="Satellite beaming laser energy from space to Earth" class="tech-image">
+                        <div class="absolute inset-0 gradient-hero rounded opacity-30"></div>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center">
+                            <h3 class="text-3xl font-bold mb-2">Space-to-Earth Energy Transmission</h3>
+                            <p class="text-lg text-muted-foreground">Advanced laser technology delivering clean power across the cosmos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technology Process -->
+                <div class="grid grid-md-2 grid-lg-4 gap-8">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <div style="width: 4rem; height: 4rem; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; transition: background 0.3s ease;">
+                                <span class="text-2xl font-bold text-primary">01</span>
+                            </div>
+                            <div class="card-title">Solar Collection</div>
+                        </div>
+                        <div class="card-content">
+                            <p class="text-muted-foreground leading-relaxed text-center">
+                                Advanced photovoltaic arrays in geostationary orbit collect solar energy with 8x the efficiency of terrestrial systems, operating 24/7 without atmospheric interference.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <div style="width: 4rem; height: 4rem; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                                <span class="text-2xl font-bold text-primary">02</span>
+                            </div>
+                            <div class="card-title">Power Conversion</div>
+                        </div>
+                        <div class="card-content">
+                            <p class="text-muted-foreground leading-relaxed text-center">
+                                High-efficiency power management systems convert collected solar energy into precise microwave or laser beams, optimized for safe atmospheric transmission.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <div style="width: 4rem; height: 4rem; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                                <span class="text-2xl font-bold text-primary">03</span>
+                            </div>
+                            <div class="card-title">Wireless Transmission</div>
+                        </div>
+                        <div class="card-content">
+                            <p class="text-muted-foreground leading-relaxed text-center">
+                                Directed energy beams safely transmit power through space and atmosphere to receiving stations on Earth with minimal energy loss during transmission.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <div style="width: 4rem; height: 4rem; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                                <span class="text-2xl font-bold text-primary">04</span>
+                            </div>
+                            <div class="card-title">Ground Reception</div>
+                        </div>
+                        <div class="card-content">
+                            <p class="text-muted-foreground leading-relaxed text-center">
+                                Ground-based receiving stations convert transmitted energy back to electrical power and integrate seamlessly with existing power grid infrastructure.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Specifications -->
+                <div class="grid grid-md-3 gap-8" style="margin-top: 4rem;">
+                    <div class="card">
+                        <div class="card-content text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">8x</div>
+                            <div class="text-lg font-semibold mb-2">More Efficient</div>
+                            <p class="text-muted-foreground text-sm">
+                                Space-based solar panels receive 8 times more energy than Earth-based systems
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">24/7</div>
+                            <div class="text-lg font-semibold mb-2">Continuous Power</div>
+                            <p class="text-muted-foreground text-sm">
+                                Uninterrupted energy generation without weather or daylight dependencies
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">95%</div>
+                            <div class="text-lg font-semibold mb-2">Transmission Efficiency</div>
+                            <p class="text-muted-foreground text-sm">
+                                Advanced laser systems maintain high efficiency during space-to-Earth transmission
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section bg-gradient-space">
+        <div class="container">
+            <div style="max-width: 72rem; margin: 0 auto;">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h2 class="section-title">OUR PROJECTS</h2>
+                    <p class="section-subtitle">
+                        We are advancing multiple breakthrough technologies to make space-based solar power a reality.
+                    </p>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="grid grid-md-2 gap-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="card-title">Orbital Demonstration Mission</div>
+                                <span class="badge badge-blue">In Development</span>
+                            </div>
+                            <div class="text-sm text-muted-foreground font-medium">
+                                Timeline: 2025-2027
+                            </div>
+                        </div>
+                        <div class="card-content space-y-6">
+                            <p class="text-muted-foreground leading-relaxed">
+                                First orbital prototype demonstrating space-based solar power collection and wireless energy transmission capabilities.
+                            </p>
+                            
+                            <div>
+                                <h4 class="font-semibold mb-3">Key Milestones:</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start text-sm text-muted-foreground">
+                                        <span style="width: 0.375rem; height: 0.375rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Satellite design completion
+                                    </li>
+                                    <li class="flex items-start text-sm text-muted-foreground">
+                                        <span style="width: 0.375rem; height: 0.375rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Ground station preparation
+                                    </li>
+                                    <li class="flex items-start text-sm text-muted-foreground">
+                                        <span style="width: 0.375rem; height: 0.375rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Launch vehicle selection
+                                    </li>
+                                    <li class="flex items-start text-sm text-muted-foreground">
+                                        <span style="width: 0.375rem; height: 0.375rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Mission operations planning
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="card-title">Laser Transmission Technology</div>
+                                <span class="badge badge-purple">Research Phase</span>
+                            </div>
+                            <div class="text-sm text-muted-foreground font-medium">
+                                Timeline: 2025-2026
+                            </div>
+                        </div>
+                        <div class="card-content space-y-6">
+                            <p class="text-muted-foreground leading-relaxed">
+                                Advanced laser beam formation and atmospheric transmission systems for safe, efficient power delivery to Earth.
+                            </p>
+                            
+                            <div>
+                                <h4 class="font-semibold mb-3">Key Milestones:</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start text-sm text-muted-foreground">
+                                        <span style="width: 0.375rem; height: 0.375rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Beam focusing algorithms
+                                    </li>
+                                    <li class="flex items-start text-sm text-muted-foreground">
+                                        <span style="width: 0.375rem; height: 0.375rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Atmospheric compensation
+                                    </li>
+                                    <li class="flex items-start text-sm text-muted-foreground">
+                                        <span style="width: 0.375rem; height: 0.375rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Safety protocol development
+                                    </li>
+                                    <li class="flex items-start text-sm text-muted-foreground">
+                                        <span style="width: 0.375rem; height: 0.375rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Ground receiver optimization
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="card-title">Solar Panel Optimization</div>
+                                <span class="badge badge-green">Prototyping</span>
+                            </div>
+                            <div class="text-sm text-muted-foreground font-medium">
+                                Timeline: 2025-2026
+                            </div>
+                        </div>
+                        <div class="card-content space-y-6">
+                            <p class="text-muted-foreground leading-relaxed">
+                                Next-generation space-grade photovoltaic arrays designed for maximum efficiency in the harsh space environment.
+                            </p>
+                            
+                            <div>
+                                <h4 class="font-semibold mb-3">Key Milestones:</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start text-sm text-muted-foreground">
+                                        <span style="width: 0.375rem; height: 0.375rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Material selection testing
+                                    </li>
+                                    <li class="flex items-start text-sm text-muted-foreground">
+                                        <span style="width: 0.375rem; height: 0.375rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Radiation resistance validation
+                                    </li>
+                                    <li class="flex items-start text-sm text-muted-foreground">
+                                        <span style="width: 0.375rem; height: 0.375rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Deployment mechanism design
+                                    </li>
+                                    <li class="flex items-start text-sm text-muted-foreground">
+                                        <span style="width: 0.375rem; height: 0.375rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Performance benchmarking
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="card-title">Ground Infrastructure</div>
+                                <span class="badge badge-yellow">Planning</span>
+                            </div>
+                            <div class="text-sm text-muted-foreground font-medium">
+                                Timeline: 2025-2027
+                            </div>
+                        </div>
+                        <div class="card-content space-y-6">
+                            <p class="text-muted-foreground leading-relaxed">
+                                Development of receiving stations and grid integration systems for seamless power distribution to existing infrastructure.
+                            </p>
+                            
+                            <div>
+                                <h4 class="font-semibold mb-3">Key Milestones:</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start text-sm text-muted-foreground">
+                                        <span style="width: 0.375rem; height: 0.375rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Site selection analysis
+                                    </li>
+                                    <li class="flex items-start text-sm text-muted-foreground">
+                                        <span style="width: 0.375rem; height: 0.375rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Grid integration studies
+                                    </li>
+                                    <li class="flex items-start text-sm text-muted-foreground">
+                                        <span style="width: 0.375rem; height: 0.375rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Regulatory compliance
+                                    </li>
+                                    <li class="flex items-start text-sm text-muted-foreground">
+                                        <span style="width: 0.375rem; height: 0.375rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Commercial partnerships
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Space Solar Section -->
+    <section id="space-solar" class="section">
+        <div class="container">
+            <div style="max-width: 72rem; margin: 0 auto;">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h2 class="section-title">WHY SPACE-BASED SOLAR POWER?</h2>
+                    <p class="section-subtitle">
+                        Space-based solar power represents the next evolutionary step in clean energy technology, 
+                        offering unprecedented advantages over traditional renewable sources.
+                    </p>
+                </div>
+
+                <!-- Statistics -->
+                <div class="grid grid-cols-2 grid-md-4 gap-6 mb-16">
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div class="text-2xl md:text-3xl font-bold text-primary mb-2">1.3 kW/m²</div>
+                            <div class="text-sm text-muted-foreground">Solar Power Density in Space</div>
+                        </div>
+                    </div>
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div class="text-2xl md:text-3xl font-bold text-primary mb-2">35,786 km</div>
+                            <div class="text-sm text-muted-foreground">Geostationary Orbit Altitude</div>
+                        </div>
+                    </div>
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div class="text-2xl md:text-3xl font-bold text-primary mb-2">99.9%</div>
+                            <div class="text-sm text-muted-foreground">System Uptime Capability</div>
+                        </div>
+                    </div>
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div class="text-2xl md:text-3xl font-bold text-primary mb-2">10 GW</div>
+                            <div class="text-sm text极-muted-foreground">Potential Power Per Satellite</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advantages Grid -->
+                <div class="grid grid-md-2 grid-lg-3 gap-8 mb-16">
+                    <div class="card">
+                        <div class="card-content p-8">
+                            <div class="text-4xl mb-4 text-center">☀️</div>
+                            <h3 class="text-xl font-semibold mb-4 text-center">Continuous Energy Generation</h3>
+                            <p class="text-muted-foreground leading-relaxed text-center">
+                                Space-based solar panels operate 24/7 without interruption from weather, seasons, or the day-night cycle, providing consistent power output.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content p-8">
+                            <div class="text-4xl mb-4 text-center">🌌</div>
+                            <h3 class="text-xl font-semibold mb-4 text-center">Superior Solar Exposure</h3>
+                            <p class="text-muted-foreground leading-relaxed text-center">
+                                Solar panels in space receive 8-10 times more solar energy than Earth-based systems due to the absence of atmospheric filtering.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content p-8">
+                            <div class="text-4xl mb-4 text-center">🌍</div>
+                            <h3 class="text-xl font-semibold mb-4 text-center">Global Energy Access</h3>
+                            <p class="text-muted-foreground leading-relaxed text-center">
+                                Wireless power transmission enables energy delivery to any location on Earth, including remote areas without existing infrastructure.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content p-8">
+                            <div class="text-4xl mb-4 text-center">⛅</div>
+                            <h3 class="text-xl font-semibold mb-4 text-center">Weather Independence</h3>
+                            <p class="text-muted-foreground leading-relaxed text-center">
+                                Space-based systems are completely immune to clouds, storms, dust, and other atmospheric conditions that affect terrestrial solar power.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content p-8">
+                            <div class="text-4xl mb-4 text-center">📈</div>
+                            <h3 class="text-xl font-semibold mb-4 text-center">Scalable Infrastructure</h3>
+                            <p class="text-muted-foreground leading-relaxed text-center">
+                                Orbital solar arrays can be expanded indefinitely without land constraints, meeting growing global energy demands.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content p-8">
+                            <div class="text-4xl mb-4 text-center">♻️</div>
+                            <h3 class="text-xl font-semibold mb-4 text-center">Zero Carbon Footprint</h3>
+                            <p class="text-muted-foreground leading-relaxed text-center">
+                                Once deployed, space solar power systems generate clean energy with no emissions, waste, or environmental impact during operation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Applications Section -->
+                <div class="mb-16">
+                    <div class="text-center mb-12">
+                        <h3 class="text-3xl md:text-4xl font-bold mb-4">CRITICAL APPLICATIONS</h3>
+                        <p class="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                            Space-based solar power addresses critical energy needs across defense, disaster relief, 
+                            remote operations, and mission-critical infrastructure.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-md-2 grid-lg-3 gap-8">
+                        <div class="card">
+                            <div class="card-content p-8">
+                                <div class="text-4xl mb-4 text-center">🛡️</div>
+                                <h4 class="text-lg font-semibold mb-4 text-center">Defense & Military Operations</h4>
+                                <p class="text-muted-foreground leading-relaxed text-center text-sm">
+                                    Power forward operating bases, remote military installations, and critical defense infrastructure with reliable 24/7 energy, independent of local power grids.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-content p-8">
+                                <div class="text-4xl mb-4 text-center">🚨</div>
+                                <h4 class="text-lg font-semibold mb-4 text-center">Disaster Relief & Emergency Response</h4>
+                                <p class="text-muted-foreground leading-relaxed text-center text-sm">
+                                    Rapidly deploy power to disaster-affected areas, supporting rescue operations, medical facilities, and communication networks when traditional infrastructure fails.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-content p-8">
+                                <div class="text-4xl mb-4 text-center">🏭</div>
+                                <h4 class="text-lg font-semibold mb-4 text-center">Remote Industrial Operations</h4>
+                                <p class="text-muted-foreground leading-relaxed text-center text-sm">
+                                    Enable mining, oil exploration, and manufacturing in remote locations without access to power grids, reducing operational costs and environmental impact.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-content p-8">
+                                <div class="text-4xl mb-4 text-center">🚀</div>
+                                <h4 class="text-lg font-semibold mb-4 text-center">Space Missions & Lunar Bases</h4>
+                                <p class="text-muted-foreground leading-relaxed text-center text-sm">
+                                    Power space stations, lunar settlements, and Mars missions with abundant clean energy, supporting long-term human presence in space.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-content p-8">
+                                <div class="text-4xl mb-4 text-center">🏝️</div>
+                                <h4 class="text-lg font-semibold mb-4 text-center">Island Nations & Coastal Areas</h4>
+                                <p class="text-muted-foreground leading-relaxed text-center text-sm">
+                                    Provide energy independence to island nations and coastal communities, reducing reliance on imported fossil fuels and vulnerable underwater cables.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-content p-8">
+                                <div class="text-4xl mb-4 text-center">⚡</div>
+                                <h4 class="text-lg font-semibold mb-4 text-center">Critical Infrastructure Backup</h4>
+                                <p class="text-muted-foreground leading-relaxed text-center text-sm">
+                                    Ensure continuous power for hospitals, data centers, and essential services during grid failures, natural disasters, or cyber attacks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison Section -->
+                <div class="card">
+                    <div class="card-content p-8">
+                        <h3 class="text-2xl font-semibold mb-8 text-center">
+                            Space Solar vs. Traditional Renewable Energy
+                        </h3>
+                        
+                        <div style="overflow-x: auto;">
+                            <table class="table">
+                                <thead>
+                                    <tr style="border-bottom: 1px solid var(--border);">
+                                        <th style="padding-bottom: 1rem; font-weight: 600;">Aspect</th>
+                                        <th class="table-center" style="padding-bottom: 1rem; font-weight: 600;">Space Solar Power</th>
+                                        <th class="table-center" style="padding-bottom: 1rem; font-weight: 600;">Traditional Solar</th>
+                                        <th class="table-center" style="padding-bottom: 1rem; font-weight: 600;">Wind Power</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-muted-foreground">
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                        <td style="padding: 1rem 0; font-weight: 500;">Energy Availability</td>
+                                        <td class="table-center text-green">24/7 Continuous</td>
+                                        <td class="table-center text-yellow">Daylight Only</td>
+                                        <td class="table-center text-yellow">Weather Dependent</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                        <td style="padding: 1rem 0; font-weight: 500;">Power Density</td>
+                                        <td class="table-center text-green">8x Higher</td>
+                                        <td class="table-center text-red">Limited by Atmosphere</td>
+                                        <td class="table-center text-yellow">Variable</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(255,255,255,极.1);">
+                                        <td style="padding: 1rem 0; font-weight: 500;">Land Usage</td>
+                                        <td class="table-center text-green">Zero</td>
+                                        <td class="table-center text-red">Extensive</td>
+                                        <td class="table-center text-red">Significant</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 1rem 0; font-weight: 500;">Weather Impact</td>
+                                        <td class="table-center text-green">None</td>
+                                        <极 class="table-center text-red">High</td>
+                                        <td class="table-center text-red">High</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section bg-gradient-space">
+        <div class="container">
+            <div style="max-width: 72rem; margin: 0 auto;">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h2 class="section-title">OUR TEAM</h2>
+                    <p class="section极-subtitle">
+                        Meet the visionary minds behind Xorbital's revolutionary space-based solar power technology.
+                    </p>
+                </div>
+
+                <!-- Core Team -->
+                <div class="mb-16">
+                    <h3 class="text-2xl font-semibold text-center mb-12">Leadership Team</h3>
+                    <div class="grid grid-md-2 gap-8" style="max-width: 64rem; margin: 0 auto;">
+                        <div class="card text-center">
+                            <div class="card-content p-8">
+                                <div class="relative mb-6">
+                                    <img src="images/suraj-profile.jpg" alt="Suraj Tripathi - Founder & CEO" class="profile-img">
+                                </div>
+                                
+                                <h4 class="text-2xl font-bold mb-2">Suraj Tripathi</h4>
+                                <p class="text-primary font-semibold mb-4">Founder & CEO</p>
+                                <p class="text-muted-foreground leading-relaxed mb-6">
+                                    Visionary leader with expertise in aerospace engineering and clean energy systems. Leading Xorbital's mission to revolutionize space-based solar power technology.
+                                </p>
+                                
+                                <div class="space-y-2">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card text-center">
+                            <div class="card-content p-8">
+                                <div class="relative mb-6">
+                                    <img src="images/sujal-profile.jpg" alt="Sujal Rohkale - Co-Founder & CFO" class="profile-img">
+                                </div>
+                                
+                                <h4 class="text-2xl font-bold mb-2">Sujal Rohkale</h4>
+                                <p class="text-primary font-semibold mb-4">Co-Founder & CFO</p>
+                                <p class="text-muted-foreground leading-relaxed mb-6">
+                                    Financial strategist and operations expert driving Xorbital's business development and funding initiatives for breakthrough space energy solutions.
+                                </p>
+                                
+                                <div class="space-y-2">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Join Team CTA -->
+                <div style="margin-top: 4rem;" class="text-center">
+                    <div class="card">
+                        <div class="card-content p-8">
+                            <h3 class="text-2xl font-semibold mb-4">Join Our Mission</h3>
+                            <p class="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                                We're looking for passionate individuals who want to shape the future of clean energy. 
+                                Join us in revolutionizing how humanity powers itself through space-based solar technology.
+                            </p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div style="max-width: 72rem; margin: 0 auto;">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h2 class="section-title">CONTACT XORBITAL</h2>
+                    <p class="section-subtitle">
+                        Ready to partner with us in revolutionizing clean energy? Let's discuss how we can work together.
+                    </p>
+                </div>
+
+                <div style="max-width: 32rem; margin: 0 auto;" class="text-center">
+                    <div class="极card">
+                        <div class="card-content p-8">
+                            <h3 class="text-2xl font-semibold mb-6">Get In Touch</h3>
+                            <div class="space-y-4">
+                                <p class="text-muted-foreground mb-6">
+                                    For all inquiries including partnerships, investments, and general information:
+                                </p>
+                                <div class="text-center">
+                                    <a href="mailto:contact@xorbital.space" class="text-2xl font-semibold text-primary hover:text-primary/80 transition-colors">
+                                        contact@xorbital.space
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 2rem;">
+                                <h4 class="text-lg font-semibold mb-4">Partnership Opportunities</h4>
+                                <ul class="space-y-3 text-muted-foreground">
+                                    <li class="flex items-start justify-center">
+                                        <span style="width: 0.5rem; height: 0.5rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Strategic technology partnerships
+                                    </li>
+                                    <li class="flex items-start justify-center">
+                                        <span style="width: 0.5rem; height: 0.5rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Investment and funding opportunities
+                                    </li>
+                                    <li class="flex items-start justify-center">
+                                        <span style="width: 0.5rem; height: 0.5rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 极;"></span>
+                                        Government and defense contracts
+                                    </li>
+                                    <li class="flex items-start justify-center">
+                                        <span style="width: 0.5rem; height: 0.5rem; background: var(--primary); border-radius: 50%; margin-top: 0.5rem; margin-right: 0.75rem; flex-shrink: 0;"></span>
+                                        Research collaborations
+                                    </极>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container py-12">
+            <div style="max-width: 72rem;极 margin: 0 auto;">
+                <div class="grid grid-md-4 gap-8">
+                    <!-- Company Info -->
+                    <div style="grid-column: span 2;">
+                        <div class="mb-4">
+                            <span class="text-2xl font-bold tracking-tight">XORBITAL</span>
+                        </div>
+                        <p class="text-muted-foreground mb-6 leading-relaxed" style="max-width: 28rem;">
+                            Revolutionizing clean energy through space-based solar power technology. 
+                            Unlimited clean energy from space, delivered to Earth via advanced laser transmission systems.
+                        </p>
+                        <div class="space-y-2 text-sm text-muted-foreground">
+                            <p>© 2025 Quanternity Technologies Private Limited. All rights reserved.</p>
+                            <p>Pioneering the future of space-based solar power.</p>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="font-semibold mb-4"></h3>
+                        <ul class="space-y-3 text-sm">
+                          
+                        </ul>
+                    </div>
+
+                    
+
+                <!-- Bottom Bar -->
+                <div class="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground" style="margin-top: 3rem;">
+                    <div class="mb-4 md:mb-0">
+                        <span>Building the future of clean energy through space technology</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // JavaScript functionality
+        let isMobileMenuOpen = false;
+
+        // Scroll to section functionality
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                closeMobileMenu();
+            }
+        }
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            isMobileMenuOpen = !isMobileMenuOpen;
+            const mobileMenu = document.getElementById('mobile-menu');
+            const line1 = document.getElementById('menu-line-1');
+            const line2 = document.getElementById('menu-line-2');
+            const line3 = document.getElementById('menu-line-3');
+
+            if (isMobileMenuOpen) {
+                mobileMenu.classList.add('active');
+                line1.style.transform = 'rotate(45deg) translateY(12px)';
+                line2.style.opacity = '0';
+                line3.style.transform = 'rotate(-45deg) translateY(-12px)';
+            } else {
+                mobileMenu.classList.remove('active');
+                line1.style.transform = 'none';
+                line2.style.opacity = '1';
+                line3.style.transform = 'none';
+            }
+        }
+
+        // Close mobile menu
+        function closeMobileMenu() {
+            if (isMobileMenuOpen) {
+                toggleMobileMenu();
+            }
+        }
+
+        // Handle scroll effects
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navigation');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('navigation');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (isMobileMenuOpen && !nav.contains(event.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768 && isMobileMenuOpen) {
+                closeMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>
